@@ -1,0 +1,6 @@
+# playbooks/infrastructure/ec2.yml
+# ---
+# playbook that runs our ec2 role for any hosts in the `ec2` group
+
+- name: Host 1 playbook
+  hosts: host1
