@@ -7,5 +7,5 @@ ansible all -i inventory/hosts.inventory -e "ansible_ssh_user=osboxes" --ask-pas
 
 - Run playbook with specified host inventory file using `-i`  option
 ```bash
-ansible-playbook -i inventory/hosts.inventory site.yml
+ansible-playbook -i inventory/hosts.inventory site.yml -e "ansible_ssh_user=osboxes" --ask-pass
 ```
