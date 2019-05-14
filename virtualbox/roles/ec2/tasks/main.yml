@@ -1,10 +1,9 @@
----
-  - name: EC2 Display all variables/facts known for a host
-    debug:
-      var: hostvars[inventory_hostname]
-      verbosity: 4
+- name: EC2 Display all variables/facts known for a host
+  debug:
+    var: hostvars[inventory_hostname]
+    verbosity: 4
 
-  - name: EC2 Debug
-    debug: msg="Current user name is {{ ansible_ssh_user }}"
-    tags:
-      - user
+- name: EC2 Debug
+  debug: msg="Current user name is {{ ansible_ssh_user }}"
+  tags:
+    - user

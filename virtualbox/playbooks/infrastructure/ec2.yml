@@ -4,3 +4,6 @@
 
 - name: Host 1 playbook
   hosts: host1
+
+  roles:
+  - ec2
