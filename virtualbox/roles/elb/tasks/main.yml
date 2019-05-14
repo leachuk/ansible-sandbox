@@ -1,7 +1,6 @@
 - name: ELB Display all variables/facts known for a host
   debug:
-    var: hostvars[inventory_hostname]
-    verbosity: 4
+    var: string_var_1
 
 - name: ELB Debug
   debug: msg="Current user name is {{ ansible_ssh_user }}"

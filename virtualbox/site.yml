@@ -1,8 +1,5 @@
 ## file: site.yml
 ## This playbook deploys the whole application stack.
 
-- name: stack deploy
-  hosts: host1
-
 - import_playbook: playbooks/infrastructure/elb.yml
 - import_playbook: playbooks/infrastructure/ec2.yml
