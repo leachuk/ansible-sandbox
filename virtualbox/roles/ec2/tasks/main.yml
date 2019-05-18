@@ -2,6 +2,10 @@
   debug:
     var: string_var_1
 
+- name: Display host vars
+  debug:
+    var: instance_type
+
 - name: EC2 Debug
   debug: msg="Current user name is {{ ansible_ssh_user }}"
   tags:

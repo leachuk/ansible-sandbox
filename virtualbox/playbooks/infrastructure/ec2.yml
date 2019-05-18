@@ -3,7 +3,7 @@
 # playbook that runs our ec2 role for any hosts in the `ec2` group
 
 - name: Host 1 playbook
-  hosts: host2
+  hosts: group2
 #  vars_files:
 #    - /host_vars/host1/host1.yml
 

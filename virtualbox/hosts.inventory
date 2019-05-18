@@ -1,5 +1,5 @@
-[host1]
-localhost1 ansible_connection=local
+[group1]
+elb ansible_connection=local
 
-[host2]
-localhost2 ansible_connection=local
+[group2]
+ec2 ansible_connection=local

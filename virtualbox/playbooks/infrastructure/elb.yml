@@ -3,7 +3,7 @@
 # playbook that runs our ELB role for any hosts in the `ec2` group
 
 - name: Host 2 playbook
-  hosts: host1
+  hosts: group1
 
   roles:
     - elb

@@ -1,0 +1,12 @@
+# host_vars/ec2/ec2.yml
+# ec2 variables
+
+
+# Red Hat Enterprise Linux version 7.5 (HVM), EBS General Purpose (SSD) Volume Type
+instance_type: m4.large
+image: ami-67589505
+hostpath: "{{ inventory_dir }}/hosts.inventory"
+publisher_count : 1 
+dispatcher_count : 1
+ansible_distribution: Ubuntu
+keypair: Swinburne-Admin
