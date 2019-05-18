@@ -1,0 +1,137 @@
+# host_vars/vpc/vpc.yml
+
+# IP CIDR block for the VPC
+vpc_cidr_block: 20.0.0.0/16
+
+# a map defining the subnets we will build in the VPC
+vpc_subnets:
+  az-a-public:
+    cidr: 10.0.1.0/24
+    az: "{{ aws_region }}a"
+    map_public: true
+  az-b-public:
+    cidr: 10.0.2.0/24
+    az: "{{ aws_region }}b"
+    map_public: true
+  az-c-public:
+    cidr: 10.0.3.0/24
+    az: "{{ aws_region }}c"
+    map_public: true
+  az-a-private:
+    cidr: 10.0.4.0/24
+    az: "{{ aws_region }}a"
+    map_public: false
+  az-b-private:
+    cidr: 10.0.5.0/24
+    az: "{{ aws_region }}b"
+    map_public: false
+  az-c-private:
+    cidr: 10.0.6.0/24
+    az: "{{ aws_region }}c"
+    map_public: false
+
+# a list defining the security groups for our VPC
+vpc_security_groups:
+  - name: "{{ vpc_name }}-Author"
+    description: "Author"
+    rules:
+      - proto: tcp
+        group_name: "{{ vpc_name }}-Author"
+        cidr_ip: 136.186.0.0/16
+        cidr_ipv6: 2001:388:6080::/48
+        ports:
+          - 4502
+      - proto: tcp
+        cidr_ip: 136.186.0.0/16
+        cidr_ipv6: 2001:388:6080::/48
+        ports:
+          - 22
+      - proto: tcp
+        cidr_ip: 115.70.20.133/32
+        ports:
+          - 22
+      - proto: tcp
+        cidr_ip: 115.70.162.7/32
+        ports:
+          - 22
+      - proto: tcp
+        cidr_ip: 115.70.99.174/32
+        ports:
+          - 22
+  - name: "{{ vpc_name }}-Publisher"
+    description: "Publisher"
+    rules:
+      - proto: tcp
+        group_name: "{{ vpc_name }}-Publisher"
+        cidr_ip: 136.186.0.0/16
+        cidr_ipv6: 2001:388:6080::/48
+        ports:
+          - 4503
+      - proto: tcp
+        cidr_ip: 136.186.0.0/16
+        cidr_ipv6: 2001:388:6080::/48
+        ports:
+          - 22
+      - proto: tcp
+        cidr_ip: 115.70.20.133/32
+        ports:
+          - 22
+      - proto: tcp
+        cidr_ip: 115.70.162.7/32
+        ports:
+          - 22
+      - proto: tcp
+        cidr_ip: 115.70.99.174/32
+        ports:
+          - 22
+  - name: "{{ vpc_name }}-Dispatcher"
+    description: "Dispatcher"
+    rules:
+      - proto: tcp
+        group_name: "{{ vpc_name }}-Dispatcher"
+        cidr_ip: 0.0.0.0/0
+        cidr_ipv6: 2001:388:6080::/48
+        ports:
+          - 80
+      - proto: tcp
+        cidr_ip: 136.186.0.0/16
+        cidr_ipv6: 2001:388:6080::/48
+        ports:
+          - 22
+      - proto: tcp
+        cidr_ip: 115.70.20.133/32
+        ports:
+          - 22
+      - proto: tcp
+        cidr_ip: 115.70.162.7/32
+        ports:
+          - 22
+      - proto: tcp
+        cidr_ip: 115.70.99.174/32
+        ports:
+          - 22
+  - name: "{{ vpc_name }}-ELB"
+    description: "Dispatcher"
+    rules:
+      - proto: tcp
+        group_name: "{{ vpc_name }}-ELB"
+        cidr_ip: 136.186.0.0/16
+        cidr_ipv6: 2001:388:6080::/48
+        ports:
+          - 443
+      - proto: tcp
+        cidr_ip: 115.70.20.133/32
+        ports:
+          - 443
+      - proto: tcp
+        cidr_ip: 115.70.162.7/32
+        ports:
+          - 443
+      - proto: tcp
+        cidr_ip: 13.236.153.247/32
+        ports:
+          - 443
+      - proto: tcp
+        cidr_ip: 119.225.55.170/32
+        ports:
+          - 443

@@ -2,9 +2,9 @@
   debug:
     var: string_var_1
 
-- name: Display host vars
+- name: Display sample host vars
   debug:
-    var: instance_type
+    msg: Instance Type is {{ instance_type }} with image {{ image }}
 
 - name: EC2 Debug
   debug: msg="Current user name is {{ ansible_ssh_user }}"

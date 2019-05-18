@@ -1,0 +1,10 @@
+# group_vars/project.yml
+# ---
+# specify VPC details and AWS credentials
+
+# general details about our VPC
+vpc_name: Swinburne-FGOne
+vpc_key: Swinburne-FGOne
+vpc_dns_zone: Swinburne-FGOne
+aws_region: ap-southeast-2
+string_var_1: "fg1 group_var sample string 1"

@@ -1,0 +1,6 @@
+[group1]
+elb_fg1 ansible_connection=local
+ec2_fg1 ansible_connection=local
+
+[group2]
+ec2_fg1 ansible_connection=local
